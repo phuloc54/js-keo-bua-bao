@@ -38,6 +38,9 @@ function checkWin(btn) {
 
   btn.classList.add("active");
 
+  // Has 1 cell is clicked -> cannot clicked any other cells
+  document.querySelectorAll(".btn.user").forEach((item) => (item.style.pointerEvents = "none"));
+
   const userSelection = btn.id;
 
   const computer = document.querySelector(".computer");
@@ -124,6 +127,9 @@ function resetGame() {
   hideButtonPlayAgain();
   // 3. hide alert status of game
   resetAlertStatusOfGame();
+
+  // 4. Allow click on cell
+  document.querySelectorAll(".btn.user").forEach((item) => (item.style.pointerEvents = ""));
 }
 
 function removeClassActiveBtn() {
